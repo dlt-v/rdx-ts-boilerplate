@@ -7,8 +7,14 @@ interface RepositoriesState {
     data: string[];
 }
 
+const initialState: RepositoriesState = {
+    loading: false,
+    error: null,
+    data: [],
+};
+
 export const reducer = (
-    state: RepositoriesState,
+    state: RepositoriesState = initialState,
     action: Action
 ): RepositoriesState => {
     // Remember about "type guards".
