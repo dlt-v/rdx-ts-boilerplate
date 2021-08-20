@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useActions } from '../hooks/useActions';
 
 export const RepositoriesList: React.FC = () => {
     const [term, setTerm] = useState('');
     const { searchRepositories } = useActions();
+    const { data, error, loading } = useTypedSelector(
+        (state) => state.repositories
+    );
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTerm(event.target.value);
